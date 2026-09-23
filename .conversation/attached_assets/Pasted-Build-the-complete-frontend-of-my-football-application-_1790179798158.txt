@@ -1,0 +1,1698 @@
+Build the complete frontend of my football application called ACADEMYSCORE.
+
+IMPORTANT:
+This is a FRONTEND-ONLY project.
+
+Use ONLY:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Recharts for charts
+- Lucide React for icons
+
+DO NOT create:
+- Node.js backend
+- Express
+- PostgreSQL
+- Prisma
+- MongoDB
+- REST APIs
+- WebSocket server
+- Supabase
+- Firebase
+- Real authentication backend
+- Payment integration
+
+Use realistic MOCK DATA and React state/localStorage where interaction is needed.
+
+The goal is to create a complete, polished React frontend prototype that can later be connected to a backend.
+
+IMPORTANT:
+If an AcademyScore frontend already exists in this Replit project, KEEP the existing design and pages. Extend them instead of rebuilding everything from scratch.
+
+==================================================
+1. APPLICATION CONCEPT
+==================================================
+
+AcademyScore is a football academy and football competition platform.
+
+There are 4 types of users:
+
+1. Public visitor
+2. Coach
+3. Player
+4. Referee
+
+Public visitors do NOT need to log in.
+
+Coaches, Players and Referees have separate dashboards.
+
+The public experience should feel similar to a modern football live-score application such as Flashscore.
+
+The coach interface should feel like a football academy management and player-performance platform.
+
+The referee interface should feel like a professional match-control application designed to be used on a smartphone during a match.
+
+==================================================
+2. PUBLIC NAVIGATION
+==================================================
+
+Create the following public navigation:
+
+HOME
+LIVE
+MATCHES
+COMPETITIONS
+TEAMS
+PLAYERS
+RANKINGS
+
+On the right:
+
+Search
+Sign In
+
+Public users can access all of these without authentication.
+
+==================================================
+3. HOMEPAGE
+==================================================
+
+Create a professional football homepage.
+
+Keep the existing AcademyScore visual identity if it already exists.
+
+Use:
+
+- Deep navy
+- White
+- Green for LIVE
+- Yellow for yellow cards
+- Red for red cards
+- Light gray backgrounds
+
+Homepage sections:
+
+--------------------------------
+LIVE NOW
+--------------------------------
+
+Display 3-4 fictional live matches.
+
+Example:
+
+🔴 LIVE 87'
+
+FC Horizon U17
+1 - 0
+Atlas Academy U19
+
+Show recent events:
+
+55' ⚽ Quaresma
+72' 🟨 Player 9
+
+Each match should be clickable.
+
+--------------------------------
+TODAY'S MATCHES
+--------------------------------
+
+Show:
+
+LIVE
+UPCOMING
+FINISHED
+
+Example:
+
+72'
+FC Horizon U19 1 - 0 Lagos Lions U19
+
+21:15
+Atlas Academy U19 vs Olympia Youth U19
+
+--------------------------------
+UPCOMING
+--------------------------------
+
+Show upcoming matches with:
+
+Date
+Time
+Competition
+Teams
+
+--------------------------------
+RECENT RESULTS
+--------------------------------
+
+Show finished matches.
+
+--------------------------------
+POPULAR COMPETITIONS
+--------------------------------
+
+Show competition cards.
+
+--------------------------------
+TOP PLAYERS
+--------------------------------
+
+Show:
+
+Top scorers
+Top assists
+Best rated players
+
+==================================================
+4. LIVE PAGE
+==================================================
+
+Route:
+
+/live
+
+Create a dedicated LIVE page.
+
+Show all current live matches.
+
+Each match:
+
+LIVE
+Match minute
+Competition
+Home team
+Score
+Away team
+
+Latest events.
+
+Clicking a match opens:
+
+/matches/:id
+
+Use mock React state to simulate live changes.
+
+For example, the referee demo interface can change a score locally and the match page can display the updated mock state.
+
+No backend is needed.
+
+==================================================
+5. MATCHES PAGE
+==================================================
+
+Route:
+
+/matches
+
+Filters:
+
+ALL
+LIVE
+UPCOMING
+FINISHED
+
+Group matches by date.
+
+Each match card:
+
+Competition
+Date
+Time
+Home team
+Score
+Away team
+Status
+
+Click to open Match Details.
+
+==================================================
+6. MATCH DETAILS
+==================================================
+
+Route:
+
+/matches/:id
+
+Create a professional football match page.
+
+Example:
+
+ACADEMY CHAMPIONS LEAGUE
+
+FC HORIZON U19
+
+2 - 1
+
+ATLAS ACADEMY U19
+
+LIVE 67'
+
+Tabs:
+
+SUMMARY
+LINEUPS
+STATISTICS
+EVENTS
+
+--------------------------------
+SUMMARY
+--------------------------------
+
+Show event timeline:
+
+12' ⚽ Goal — Player 9
+31' 🟨 Yellow Card — Player 5
+45' HALF TIME
+55' ⚽ Goal — Player 10
+67' 🟨 Yellow Card — Player 9
+
+--------------------------------
+LINEUPS
+--------------------------------
+
+Home:
+
+Starting XI
+Substitutes
+
+Away:
+
+Starting XI
+Substitutes
+
+--------------------------------
+STATISTICS
+--------------------------------
+
+Show visual statistics:
+
+Possession
+Shots
+Shots on target
+Corners
+Fouls
+Yellow cards
+Red cards
+
+Use simple charts/bars.
+
+--------------------------------
+EVENTS
+--------------------------------
+
+Complete match timeline.
+
+==================================================
+7. COMPETITIONS
+==================================================
+
+Route:
+
+/competitions
+
+Create competition cards.
+
+Examples:
+
+Academy Champions League
+National Youth Championship
+Academy Cup
+Youth League
+
+Each card:
+
+Logo
+Name
+Season
+Teams
+Status
+
+Statuses:
+
+UPCOMING
+ACTIVE
+FINISHED
+
+Clicking opens:
+
+/competitions/:id
+
+==================================================
+8. COMPETITION DETAILS
+==================================================
+
+Create:
+
+Overview
+Standings
+Matches
+Top Players
+Bracket
+
+--------------------------------
+STANDINGS
+--------------------------------
+
+Football table:
+
+POS
+TEAM
+MP
+W
+D
+L
+GF
+GA
+GD
+PTS
+
+--------------------------------
+MATCHES
+--------------------------------
+
+Upcoming and finished matches.
+
+--------------------------------
+TOP PLAYERS
+--------------------------------
+
+Top scorers
+Top assists
+Best rated
+
+--------------------------------
+BRACKET
+--------------------------------
+
+For knockout competitions show:
+
+Quarter Finals
+Semi Finals
+Final
+
+Use a visual bracket.
+
+==================================================
+9. TEAMS
+==================================================
+
+Route:
+
+/teams
+
+Create team directory.
+
+Team cards:
+
+Logo
+Name
+Category
+Coach
+Matches
+Wins
+Draws
+Losses
+
+Clicking opens Team Details.
+
+==================================================
+10. TEAM DETAILS
+==================================================
+
+Route:
+
+/teams/:id
+
+Header:
+
+Team logo
+Team name
+Category
+Coach
+
+Statistics:
+
+Matches
+Wins
+Draws
+Losses
+Goals scored
+Goals conceded
+Goal difference
+Points
+
+Sections:
+
+SQUAD
+RECENT MATCHES
+UPCOMING MATCHES
+COMPETITIONS
+
+Squad table:
+
+Photo
+Player
+Number
+Position
+Matches
+Goals
+Assists
+Rating
+
+==================================================
+11. PLAYERS
+==================================================
+
+Route:
+
+/players
+
+Create player directory.
+
+Player cards:
+
+Photo
+Name
+Position
+Team
+Number
+
+Filters:
+
+Team
+Position
+
+Clicking opens Player Profile.
+
+==================================================
+12. PLAYER PROFILE
+==================================================
+
+Route:
+
+/players/:id
+
+Show:
+
+Photo
+Name
+Age
+Position
+Shirt number
+Team
+
+Statistics cards:
+
+Matches
+Goals
+Assists
+Minutes
+Yellow Cards
+Red Cards
+Fouls
+Rating
+
+--------------------------------
+PERFORMANCE
+--------------------------------
+
+Create a line chart showing rating over the last 5-10 matches.
+
+Also show:
+
+Goals
+Assists
+Minutes
+Cards
+
+--------------------------------
+RECENT MATCHES
+--------------------------------
+
+Date
+Opponent
+Minutes
+Goals
+Assists
+Cards
+Rating
+
+==================================================
+13. RANKINGS
+==================================================
+
+Route:
+
+/rankings
+
+Create sections:
+
+TEAM RANKINGS
+
+TOP SCORERS
+
+TOP ASSISTS
+
+MOST CARDS
+
+BEST RATED PLAYERS
+
+Use realistic mock football data.
+
+==================================================
+14. SIGN IN
+==================================================
+
+Create a frontend-only login interface.
+
+Route:
+
+/login
+
+The login page should have:
+
+AcademyScore logo
+
+Email
+Password
+
+Remember me
+
+Login button
+
+Forgot password
+
+No real backend authentication.
+
+Instead use mock accounts and local React state/localStorage.
+
+Create these demo accounts:
+
+COACH
+coach@academyscore.com
+password123
+
+REFEREE
+referee@academyscore.com
+password123
+
+PLAYER
+player@academyscore.com
+password123
+
+When logging in:
+
+Coach → /coach/dashboard
+
+Referee → /referee/dashboard
+
+Player → /player/dashboard
+
+Store the demo session in localStorage.
+
+Add logout functionality.
+
+==================================================
+15. COACH DASHBOARD
+==================================================
+
+Route:
+
+/coach/dashboard
+
+Create a professional coach dashboard.
+
+Sidebar:
+
+Dashboard
+My Teams
+Players
+Matches
+Competitions
+Payments
+Statistics
+Notifications
+Profile
+Logout
+
+Dashboard cards:
+
+MY TEAMS
+PLAYERS
+UPCOMING MATCHES
+MATCHES PLAYED
+
+--------------------------------
+MY TEAMS
+--------------------------------
+
+Show team cards.
+
+--------------------------------
+UPCOMING MATCHES
+--------------------------------
+
+Show next matches.
+
+--------------------------------
+PLAYER PERFORMANCE
+--------------------------------
+
+Table:
+
+Player
+Team
+Matches
+Goals
+Assists
+Cards
+Rating
+
+--------------------------------
+PAYMENTS
+--------------------------------
+
+Show payment overview:
+
+Paid
+Pending
+Overdue
+
+==================================================
+16. COACH TEAMS
+==================================================
+
+Route:
+
+/coach/teams
+
+The coach can see their teams.
+
+Team cards:
+
+Name
+Category
+Players
+Matches
+Wins
+Draws
+Losses
+Ranking
+
+Click team → team details.
+
+==================================================
+17. COACH TEAM DETAILS
+==================================================
+
+Route:
+
+/coach/teams/:id
+
+Show:
+
+Team information
+Squad
+Recent matches
+Upcoming matches
+Competition
+
+Player table:
+
+Player
+Position
+Matches
+Goals
+Assists
+Yellow Cards
+Red Cards
+Fouls
+Rating
+Payment
+
+==================================================
+18. COACH PLAYER PROFILE
+==================================================
+
+Route:
+
+/coach/players/:id
+
+Show detailed player information.
+
+Personal:
+
+Photo
+Name
+Age
+Position
+Number
+Team
+
+Statistics:
+
+Matches
+Starts
+Minutes
+Goals
+Assists
+Yellow
+Red
+Fouls
+Rating
+
+Performance chart.
+
+Recent matches.
+
+==================================================
+19. COACH PAYMENTS
+==================================================
+
+Route:
+
+/coach/payments
+
+Create academy payment tracking.
+
+Table:
+
+PLAYER
+AMOUNT
+DUE DATE
+STATUS
+LAST PAYMENT
+
+Statuses:
+
+PAID
+PENDING
+OVERDUE
+
+Summary cards:
+
+Total Players
+Paid
+Pending
+Overdue
+Total Collected
+Total Pending
+
+This is only frontend mock data.
+
+No real payment processing.
+
+==================================================
+20. COACH MATCHES
+==================================================
+
+Route:
+
+/coach/matches
+
+Show:
+
+Upcoming matches
+Live matches
+Finished matches
+
+Coach can open match details.
+
+==================================================
+21. PLAYER DASHBOARD
+==================================================
+
+Route:
+
+/player/dashboard
+
+Sidebar:
+
+Dashboard
+My Team
+My Matches
+My Statistics
+Competitions
+Notifications
+Profile
+Logout
+
+Dashboard cards:
+
+Matches
+Goals
+Assists
+Rating
+
+--------------------------------
+NEXT MATCH
+--------------------------------
+
+Show:
+
+Competition
+Opponent
+Date
+Time
+Stadium
+
+--------------------------------
+RECENT MATCHES
+--------------------------------
+
+Show recent performances.
+
+--------------------------------
+PERFORMANCE
+--------------------------------
+
+Show rating chart.
+
+==================================================
+22. PLAYER MY TEAM
+==================================================
+
+Route:
+
+/player/team
+
+Show:
+
+Team logo
+Team name
+Coach
+Squad
+Recent results
+Upcoming matches
+Competition standings
+
+==================================================
+23. PLAYER STATISTICS
+==================================================
+
+Route:
+
+/player/statistics
+
+Show:
+
+Matches
+Minutes
+Goals
+Assists
+Yellow Cards
+Red Cards
+Fouls
+Rating
+
+Performance chart.
+
+==================================================
+24. REFEREE SYSTEM
+==================================================
+
+THIS IS A CORE FEATURE.
+
+Create a complete referee frontend.
+
+The referee needs to use their phone during matches.
+
+The interface must be:
+
+- Mobile-first
+- Extremely simple
+- Large buttons
+- High contrast
+- Fast
+- Minimal navigation
+- Easy to operate with one hand
+
+==================================================
+25. REFEREE DASHBOARD
+==================================================
+
+Route:
+
+/referee/dashboard
+
+Sidebar:
+
+Dashboard
+My Matches
+Live Match
+Match History
+Notifications
+Profile
+Logout
+
+Show:
+
+TODAY'S MATCHES
+
+Example:
+
+ACADEMY CHAMPIONS LEAGUE
+
+FC Horizon U19
+vs
+Atlas Academy U19
+
+18:00
+
+Stadium A
+
+UPCOMING
+
+Button:
+
+OPEN MATCH
+
+Also show:
+
+Upcoming Matches
+Live Matches
+Completed Matches
+
+==================================================
+26. REFEREE MY MATCHES
+==================================================
+
+Route:
+
+/referee/matches
+
+Filters:
+
+ALL
+UPCOMING
+LIVE
+FINISHED
+
+Only show matches assigned to the demo referee.
+
+Each match:
+
+Competition
+Home
+Away
+Date
+Time
+Stadium
+Status
+
+Button:
+
+OPEN MATCH
+
+==================================================
+27. REFEREE MATCH PREPARATION
+==================================================
+
+Route:
+
+/referee/matches/:id
+
+Before match starts:
+
+Competition
+Teams
+Date
+Time
+Stadium
+Referee
+
+Show lineups.
+
+HOME TEAM:
+
+Starting XI
+Substitutes
+
+AWAY TEAM:
+
+Starting XI
+Substitutes
+
+Button:
+
+START MATCH
+
+When clicked:
+
+Change local match state to LIVE.
+
+Navigate to:
+
+/referee/matches/:id/live
+
+==================================================
+28. REFEREE LIVE MATCH SCREEN
+==================================================
+
+THIS IS THE MOST IMPORTANT SCREEN.
+
+Design this page specifically for a smartphone.
+
+Example:
+
+--------------------------------
+🔴 LIVE
+
+67:32
+
+FC HORIZON U19
+
+2
+
+—
+
+1
+
+ATLAS ACADEMY U19
+--------------------------------
+
+Large action buttons:
+
+⚽
+GOAL HOME
+
+⚽
+GOAL AWAY
+
+🟨
+YELLOW CARD
+
+🟥
+RED CARD
+
+⚠
+FOUL
+
+🔄
+SUBSTITUTION
+
+--------------------------------
+
+Secondary buttons:
+
+HALF TIME
+ADD TIME
+END MATCH
+
+--------------------------------
+
+RECENT EVENTS
+
+67' 🟨 Player 9
+55' ⚽ Player 10
+45' HALF TIME
+31' 🟨 Player 5
+
+Make the buttons large and easy to tap.
+
+==================================================
+29. REFEREE GOAL WORKFLOW
+==================================================
+
+When GOAL HOME is clicked:
+
+Open a modal/bottom sheet:
+
+GOAL — HOME TEAM
+
+Select scorer:
+
+Player 7
+Player 9
+Player 10
+Player 11
+
+Optional:
+
+Assist
+
+Confirm Goal
+
+After confirmation using React state:
+
+- Increase score
+- Add goal event
+- Update player goals
+- Add event to timeline
+
+Same for away team.
+
+==================================================
+30. YELLOW CARD
+==================================================
+
+Click:
+
+YELLOW CARD
+
+Show:
+
+Select Team
+
+HOME
+AWAY
+
+Select Player
+
+Confirm
+
+Then:
+
+- Add yellow card
+- Update player statistics
+- Add timeline event
+
+==================================================
+31. RED CARD
+==================================================
+
+Click:
+
+RED CARD
+
+Select team.
+
+Select player.
+
+Confirm.
+
+Update:
+
+Red cards
+Player statistics
+Event timeline
+
+==================================================
+32. FOUL
+==================================================
+
+Click:
+
+FOUL
+
+Select:
+
+Team
+Player
+
+Confirm.
+
+Update:
+
+Player foul count
+Team foul count
+Timeline
+
+==================================================
+33. SUBSTITUTION
+==================================================
+
+Click:
+
+SUBSTITUTION
+
+Select:
+
+PLAYER OUT
+PLAYER IN
+
+Confirm.
+
+Add event:
+
+67'
+Player X OUT
+Player Y IN
+
+==================================================
+34. HALF TIME
+==================================================
+
+Click:
+
+HALF TIME
+
+Show confirmation.
+
+Then:
+
+Match status:
+
+HALF TIME
+
+Pause timer.
+
+Display:
+
+HOME 2 - 1 AWAY
+
+Show first-half events.
+
+Button:
+
+START SECOND HALF
+
+When clicked:
+
+Resume timer.
+
+==================================================
+35. END MATCH
+==================================================
+
+Click:
+
+END MATCH
+
+Show confirmation modal:
+
+"Are you sure you want to end the match?"
+
+Confirm.
+
+Then:
+
+Match status:
+
+FINISHED
+
+Stop timer.
+
+Display:
+
+FINAL SCORE
+
+Match events
+
+Statistics
+
+Lineups
+
+Match report
+
+==================================================
+36. REFEREE MATCH HISTORY
+==================================================
+
+Route:
+
+/referee/history
+
+Show completed matches.
+
+Each:
+
+Competition
+Teams
+Final Score
+Date
+Stadium
+
+Click:
+
+VIEW REPORT
+
+==================================================
+37. REFEREE MATCH REPORT
+==================================================
+
+Show:
+
+Final Score
+
+Timeline
+
+Goals
+
+Cards
+
+Substitutions
+
+Fouls
+
+Statistics
+
+Lineups
+
+Competition
+
+Stadium
+
+Referee
+
+==================================================
+38. REFEREE PROFILE
+==================================================
+
+Route:
+
+/referee/profile
+
+Show:
+
+Photo
+Name
+Email
+Referee ID
+
+Statistics:
+
+Matches officiated
+Upcoming matches
+Completed matches
+
+==================================================
+39. REFEREE NOTIFICATIONS
+==================================================
+
+Create mock notifications:
+
+"New match assigned"
+
+"Match starts in 1 hour"
+
+"Match schedule changed"
+
+Use local state.
+
+==================================================
+40. MOCK DATA
+==================================================
+
+Create a centralized mock data structure.
+
+Use fictional data.
+
+Teams:
+
+FC Horizon U17
+FC Horizon U19
+Atlas Academy U17
+Atlas Academy U19
+Lagos Lions U19
+Alpine Eagles U17
+Olympia Youth U19
+Cedar Union U17
+Riverside FC U19
+Nordic Stars U19
+
+Competitions:
+
+Academy Champions League
+National Youth Championship
+Academy Cup
+Youth League
+
+Create at least:
+
+8 teams
+40+ players
+20+ matches
+4 competitions
+
+Include:
+
+Live matches
+Upcoming matches
+Finished matches
+
+Create realistic player statistics.
+
+==================================================
+41. MOCK LIVE MATCH STATE
+==================================================
+
+Because there is no backend, simulate live match functionality using React state.
+
+The referee can:
+
+- Start match
+- Add goals
+- Add cards
+- Add fouls
+- Add substitutions
+- Half time
+- Resume second half
+- End match
+
+The score and events should update immediately in the UI.
+
+Use Context or a lightweight state management approach if necessary.
+
+Do NOT create a backend just for this.
+
+==================================================
+42. ROUTING
+==================================================
+
+Use React Router.
+
+Public routes:
+
+/
+/live
+/matches
+/matches/:id
+/competitions
+/competitions/:id
+/teams
+/teams/:id
+/players
+/players/:id
+/rankings
+/login
+
+Coach routes:
+
+/coach/dashboard
+/coach/teams
+/coach/teams/:id
+/coach/players
+/coach/players/:id
+/coach/matches
+/coach/competitions
+/coach/payments
+/coach/statistics
+/coach/notifications
+/coach/profile
+
+Player routes:
+
+/player/dashboard
+/player/team
+/player/matches
+/player/statistics
+/player/competitions
+/player/notifications
+/player/profile
+
+Referee routes:
+
+/referee/dashboard
+/referee/matches
+/referee/matches/:id
+/referee/matches/:id/live
+/referee/history
+/referee/history/:id
+/referee/notifications
+/referee/profile
+
+==================================================
+43. PROTECTED FRONTEND ROUTES
+==================================================
+
+Use mock authentication.
+
+If user is not logged in:
+
+Redirect private routes to:
+
+/login
+
+If logged-in user has wrong role:
+
+Show:
+
+ACCESS DENIED
+
+or redirect to their own dashboard.
+
+Store mock session in localStorage.
+
+==================================================
+44. RESPONSIVE DESIGN
+==================================================
+
+Desktop:
+
+Professional sidebar dashboards.
+
+Tablet:
+
+Responsive layout.
+
+Mobile:
+
+Optimize all pages.
+
+The referee live match page is the highest priority for mobile.
+
+On mobile:
+
+- Large score
+- Large timer
+- Large action buttons
+- Bottom navigation where appropriate
+- Easy player selection
+- Minimal scrolling
+- No tiny controls
+
+==================================================
+45. COMPONENTS
+==================================================
+
+Create reusable components such as:
+
+Navbar
+Sidebar
+MobileBottomNav
+MatchCard
+LiveMatchCard
+TeamCard
+PlayerCard
+CompetitionCard
+ScoreBoard
+MatchTimeline
+MatchEvent
+PlayerStats
+TeamStats
+StandingsTable
+PerformanceChart
+StatusBadge
+SearchBar
+Modal
+PlayerSelector
+TeamSelector
+StatCard
+NotificationCard
+
+Do not duplicate components unnecessarily.
+
+==================================================
+46. DESIGN QUALITY
+==================================================
+
+The application should look polished and professional.
+
+Do NOT make it look like a generic CRUD/admin dashboard.
+
+Public pages:
+
+Sports / live-score style.
+
+Coach:
+
+Football academy management + analytics.
+
+Player:
+
+Personal sports profile.
+
+Referee:
+
+Professional match-control interface.
+
+Use:
+
+- Deep navy
+- White
+- Green
+- Yellow
+- Red
+- Light gray
+
+Use subtle animations only where useful.
+
+Do not overuse animations.
+
+==================================================
+47. IMPORTANT
+==================================================
+
+FRONTEND ONLY.
+
+Do NOT create:
+
+Backend
+Database
+API
+Express
+Node server
+Prisma
+Supabase
+Firebase
+WebSockets
+Real authentication
+Real payment system
+
+Everything should work using:
+
+React
+TypeScript
+Mock data
+React state
+localStorage
+
+The application should nevertheless LOOK and FEEL like a complete real product.
+
+==================================================
+48. FINAL CHECK
+==================================================
+
+Before finishing, verify:
+
+- Every navigation link works.
+- Every public page exists.
+- Every coach page exists.
+- Every player page exists.
+- Every referee page exists.
+- Login works with demo accounts.
+- Logout works.
+- Role-based frontend navigation works.
+- Mock sessions persist after refresh.
+- Match details work.
+- Competition details work.
+- Team details work.
+- Player profiles work.
+- Coach dashboard works.
+- Player dashboard works.
+- Referee dashboard works.
+- Referee assigned matches work.
+- Referee can start a match.
+- Referee can add a goal.
+- Referee can add yellow card.
+- Referee can add red card.
+- Referee can add foul.
+- Referee can add substitution.
+- Half time works.
+- Second half works.
+- End match works.
+- Score updates immediately.
+- Match timeline updates immediately.
+- Player statistics update locally.
+- The referee interface works well on mobile.
+- No page is left as an empty placeholder.
+
+Use realistic mock data everywhere.
+
+DO NOT add unnecessary features beyond this scope.
+Focus on completing the frontend and making every screen navigable and visually polished.

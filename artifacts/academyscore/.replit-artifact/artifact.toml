@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AcademyScore"
+description = "A polished football academy and live competition platform with public scores, coach and player dashboards, and a mobile-first referee match-control experience powered by realistic mock data."
+version = "1.0.0"
+id = "artifacts/academyscore"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21166
+
+[services.development]
+run = "pnpm --filter @workspace/academyscore run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/academyscore", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/academyscore/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21166"
+BASE_PATH = "/"
